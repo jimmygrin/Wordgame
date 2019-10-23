@@ -98,12 +98,17 @@ $("#submit").on("click", function(e){
     if (randomword.includes(letter)) {
     for (var i = 0; i < randomarr.length; i++) {
         if(randomarr[i] === letter) {
-            // guess.splice(randomarr[i],1, letter)
             guess[i] = letter
+            counter -= 1
+        
         }
+
+        
     }
   
  $("#word").html(guess)
+ $("#counter").html(counter)
+//  console.log(counter)
 
 
 // var guess = document.getElementById("guess").value
