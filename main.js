@@ -1,6 +1,8 @@
 $(document).ready(function(){
-    $("#form").on("click", "button", function(e){
+
+    $("#start").on("click", function(e){
         e.preventDefault()
+
 var commonwords = [
     "the","of","and","a","to","in","is","you","that","it","he",
     "was","for","on","are","as","with","his","they","I","at","be",
@@ -15,37 +17,107 @@ var commonwords = [
     "come","made","may","part"
   ];
 
-var guess = document.getElementById("guess").value
-//   console.log(guess)  
+var counter = 5;
+var guess = []; 
+$("#counter").html(counter)
 
 var newwords = commonwords.filter(word => word.length > 2);
-
 var randomword = newwords[Math.floor(Math.random()*newwords.length)];
 
-// console.log(randomword)
-
+console.log(randomword)
 
 
 var length = randomword.length
 
-// console.log(length)
+
+// console.log(guess)
+
+for (var i = 0; i < length; i++) {
+    guess.push("_");
+}   
+
+$("#word").html(guess)
+
+
 
 var randomarr = Array.from(randomword)
 
-// console.log(randomarr)
 
-var guess = document.getElementById("guess").value
-//   console.log(guess)  
 
-randomarr.forEach(lettercheck);
 
-function lettercheck(letter) {
-    if (letter == guess) {
-        console.log('yes')
-    } else {
-        console.log('no')
+
+// Var underscore = ''
+
+// function underscore () {
+//     randomword.forEach(letter) {
+//         underscore
+
+//         underscore += '_ '
+//     }
+// }
+
+// $("#word").html(randomword)
+// var guesses = []
+
+
+
+
+// var underscore = for(i=0; i > length; i++) {
+//   guesses.push("_")
+// }
+
+// console.log(guesses)
+
+// document.getElementById("#progress").innerHTML = guesses;
+// document.getElementById("#counter").innerHTML = counter;
+
+// console.log(randomword)
+
+
+// // $("#lines").html(randomword)
+
+// // var counter = 8;
+// // $("#counter").html(counter)
+
+
+
+
+
+$("#submit").on("click", function(e){
+    e.preventDefault()
+
+
+  var letter = document.getElementById('letter').value
+
+  console.log(letter)
+
+
+
+ 
+
+    if (randomword.includes(letter)) {
+    for (var i = 0; i < randomarr.length; i++) {
+        if(randomarr[i] === letter) {
+            // guess.splice(randomarr[i],1, letter)
+            guess[i] = letter
+        }
     }
-}
+  
+ $("#word").html(guess)
+
+
+// var guess = document.getElementById("guess").value
+// //   console.log(guess)  
+
+// randomarr.forEach(lettercheck);
+
+// function lettercheck(letter) {
+//     if (letter == guess) {
+//         $("#lines").html(guess)
+//     } else {
+//         console.log('no')
+//     }
+// }
 
 
 
@@ -72,12 +144,12 @@ function lettercheck(letter) {
 
 
 
-})
+// })
 
-               
+}            
 })
 
         
+})
 
-
-
+})
