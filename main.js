@@ -17,7 +17,7 @@ var commonwords = [
     "come","made","may","part"
   ];
 
-var counter = 5;
+var counter = 10;
 var guess = []; 
 $("#counter").html(counter)
 
@@ -91,20 +91,21 @@ $("#submit").on("click", function(e){
 
   console.log(letter)
 
-
-
+    
  
 
     if (randomword.includes(letter)) {
+        
     for (var i = 0; i < randomarr.length; i++) {
         if(randomarr[i] === letter) {
             guess[i] = letter
             counter -= 1
-        
         }
-
-        
+ 
+    
+    
     }
+  
   
  $("#word").html(guess)
  $("#counter").html(counter)
@@ -153,6 +154,7 @@ $("#submit").on("click", function(e){
 
 }            
 })
+
 
         
 })
